@@ -4,6 +4,20 @@ Arduino Four-Servo Controller is a C# Windows Forms desktop application for conf
 
 The application was developed to support the initial setup of a four-servo robotic arm. It provides separate controls for the base, elbow, shoulder, and gripper servos, while helping identify safe movement limits and servo offsets before further robotic-system integration.
 
+## Download
+
+The portable Windows executable is available through the project’s GitHub Releases page:
+
+[Download the latest Arduino Four-Servo Controller release](https://github.com/Mario-Youchia/Arduino-Four-Servo-Controller/releases/latest)
+
+The current portable release is:
+
+```text
+Arduino Four-Servo Controller v1.0.1
+```
+
+Download `ServosTest.exe` from the release assets and place it in a writable folder before running it.
+
 ## Preview
 
 ![Main Arduino Four-Servo Controller interface](public/images/projects/arduino-four-servo-controller/arduino-four-servo-controller-main-interface.png)
@@ -44,7 +58,7 @@ The About window describes the application as an initial setup and calibration t
 * Soft-reset and hard-reset operations
 * Validation for missing selections and disconnected boards
 * Built-in schematic, Help, and About windows
-* Original portable Windows executable and complete source project
+* Portable Windows release and complete source project
 
 ## Technical Overview
 
@@ -106,7 +120,11 @@ The source project uses:
 
 ### Portable executable
 
-The repository root includes the original portable Windows executable:
+The portable Windows executable is distributed through GitHub Releases rather than being stored directly in the repository:
+
+[Download the latest release](https://github.com/Mario-Youchia/Arduino-Four-Servo-Controller/releases/latest)
+
+Download this release asset:
 
 ```text
 ServosTest.exe
@@ -114,15 +132,23 @@ ServosTest.exe
 
 To use it:
 
-1. Place the executable in a writable folder.
-2. Connect a supported Arduino board through USB.
-3. Connect the four servos according to the included schematic.
-4. Run `ServosTest.exe`.
-5. Select **Default** to apply the documented configuration, or choose the settings manually.
-6. Select **Connect** and allow the firmware-upload process to finish.
-7. Adjust the servos gradually and define safe minimum and maximum limits.
+1. Download `ServosTest.exe` from the latest GitHub release.
+2. Place the executable in a writable folder.
+3. Connect a supported Arduino board through USB.
+4. Connect the four servos according to the included schematic.
+5. Run `ServosTest.exe`.
+6. Select **Default** to apply the documented configuration, or choose the settings manually.
+7. Select **Connect** and allow the firmware-upload process to finish.
+8. Adjust the servos gradually and define safe minimum and maximum limits.
 
-The executable is a large single-file Windows build recovered from the original project archives. Its size and publication structure are consistent with a self-contained publication.
+The application may create these runtime files beside the executable:
+
+```text
+Settings.txt
+History Log.txt
+```
+
+The release executable is a large single-file Windows build recovered from the original project archives. Its size and publication structure are consistent with a self-contained publication.
 
 ### Source project
 
@@ -153,7 +179,6 @@ are required for the automatic firmware-upload feature and should not be removed
 
 ```text
 README.md
-ServosTest.exe
 source/
   ServosTest.sln
   ServosTest/
