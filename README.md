@@ -1,8 +1,8 @@
 # Arduino Four-Servo Controller
 
-Arduino Four-Servo Controller is a C# Windows Forms desktop application for configuring, calibrating, and controlling four servo motors through an Arduino-compatible board.
+Arduino Four-Servo Controller is a C# Windows Forms desktop application for calibrating, and controlling four servo motors through an Arduino-compatible board.
 
-The application was developed to support the initial setup of a four-servo robotic arm. It provides separate controls for the base, elbow, shoulder, and gripper servos, while helping identify safe movement limits and servo offsets before further robotic-system integration.
+This application was created to assist with the initial setup of a robotic arm equipped with four servos. It offers individual control for the base, elbow, shoulder, and gripper servos, and aids in the determination of safe movement limits and servo offsets prior to additional robotic-system integration.
 
 ## Download
 
@@ -16,7 +16,7 @@ The current portable release is:
 Arduino Four-Servo Controller v1.0.1
 ```
 
-Download `ServosTest.exe` from the release assets and place it in a writable folder before running it.
+Download `ServosTest.exe` from the release assets.
 
 ## Preview
 
@@ -38,27 +38,26 @@ The reset menu provides a soft reset for restoring the interface state and a har
 
 ![Application help window](public/images/projects/arduino-four-servo-controller/arduino-four-servo-controller-help-window.png)
 
-The built-in Help window explains the default configuration, servo calibration process, and hardware-safety considerations.
+The built-in Help window explains the default configuration, servo calibration process, and hardware-safety precautions.
 
 ![Application information window](public/images/projects/arduino-four-servo-controller/arduino-four-servo-controller-about-window.png)
 
-The About window describes the application as an initial setup and calibration tool for robotic arms using four servo motors.
+The About window says the application is a calibration tool for robotic arms with four servo motors.
 
 ## Main Features
 
-* Independent control of four servos: base, elbow, shoulder, and gripper
-* Vertical angle sliders with one-degree increment and decrement controls
-* Individual minimum and maximum angle calibration
-* Persistent calibration limits saved between sessions
-* Selection of distinct PWM pins from pins 3, 5, 6, 9, 10, and 11
-* Arduino board, serial port, and baud-rate selection
-* Automatic upload of the matching embedded Arduino firmware
-* Serial transmission of the four servo-angle values
-* Default configuration for the documented wiring schematic
-* Soft-reset and hard-reset operations
-* Validation for missing selections and disconnected boards
-* Built-in schematic, Help, and About windows
-* Portable Windows release and complete source project
+* Independent control of the base, elbow, shoulder, and gripper servos
+* Selectable and mutually exclusive PWM-pin assignments
+* Arduino board, serial-port, and baud-rate configuration
+* Automatic upload of embedded Arduino firmware
+* Real-time servo-angle transmission through serial communication
+* Minimum and maximum angle calibration for each servo
+* Persistent calibration settings between sessions
+* Default configuration based on the included schematic
+* Soft-reset and hard-reset options
+* Input validation and connection-loss handling
+* Help, and About windows
+* Portable Windows executable alongside the complete source project
 
 ## Technical Overview
 
@@ -120,7 +119,7 @@ The source project uses:
 
 ### Portable executable
 
-The portable Windows executable is distributed through GitHub Releases rather than being stored directly in the repository:
+The portable Windows executable is distributed through GitHub Releases:
 
 [Download the latest release](https://github.com/Mario-Youchia/Arduino-Four-Servo-Controller/releases/latest)
 
@@ -133,22 +132,21 @@ ServosTest.exe
 To use it:
 
 1. Download `ServosTest.exe` from the latest GitHub release.
-2. Place the executable in a writable folder.
-3. Connect a supported Arduino board through USB.
-4. Connect the four servos according to the included schematic.
-5. Run `ServosTest.exe`.
-6. Select **Default** to apply the documented configuration, or choose the settings manually.
-7. Select **Connect** and allow the firmware-upload process to finish.
-8. Adjust the servos gradually and define safe minimum and maximum limits.
+2. Connect a supported Arduino board through USB.
+3. Connect the four servos according to the included schematic.
+4. Run `ServosTest.exe`.
+5. Select **Default** to apply the documented configuration, or choose the settings manually.
+6. Select **Connect** and allow the firmware-upload process to finish.
+7. Adjust the servos gradually and define safe minimum and maximum limits.
 
-The application may create these runtime files beside the executable:
+The application will create these runtime files beside the executable:
 
 ```text
 Settings.txt
 History Log.txt
 ```
 
-The release executable is a large single-file Windows build recovered from the original project archives. Its size and publication structure are consistent with a self-contained publication.
+The release executable is a large single-file Windows build, it is intended to be self-contained, i.e. work without installation of any package.
 
 ### Source project
 
@@ -165,7 +163,7 @@ Open:
 source/ServosTest.sln
 ```
 
-Restore the NuGet packages, build the solution, and run the Windows Forms project.
+Build the solution, and run the Windows Forms project.
 
 The embedded firmware files under:
 
@@ -173,28 +171,11 @@ The embedded firmware files under:
 source/ServosTest/Test/
 ```
 
-are required for the automatic firmware-upload feature and should not be removed.
-
-## Repository Contents
-
-```text
-README.md
-source/
-  ServosTest.sln
-  ServosTest/
-    C# Windows Forms source
-    form and application resources
-    compiled Arduino firmware files
-public/images/
-  projects/
-    arduino-four-servo-controller/
-```
+Do not remove/modify these files, they are required for the automatic firmware-upload feature.
 
 ## Limitations
 
 * The application is designed for Windows.
-* The source includes compiled Arduino firmware images but not the original Arduino sketch source.
-* Successful hardware operation depends on correct wiring, compatible board drivers, and an appropriate servo power setup.
-* Servo limits should be calibrated gradually to avoid mechanical or electrical damage.
-* The portable executable and hardware workflow were recovered from the original archives but were not retested with physical hardware during the Linux-based cleanup process.
-* The application focuses on initial servo setup, limit identification, offset identification, and direct control; it is not a complete robotic-arm motion-planning system.
+* Successful hardware operation depends on correct and appropriate setup.
+* Servo limits should be calibrated gradually to avoid motor damage.
+* The application is only used for direct control and calibration, but it is not a complete robotic-arm motion-planning system.
